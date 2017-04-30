@@ -10,7 +10,8 @@ end
 
 post '/ready' do
 p params
-@player = params[:player]
+player = params[:player]
+@player = player
 redirect '/play'
 end
 
