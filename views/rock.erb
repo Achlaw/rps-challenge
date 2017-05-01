@@ -1,2 +1,10 @@
-<h1>Testing <%= player %>.</h1>
-Player: Rock vs CPU: <%= CPU_weapon %>
+<h1>Testing <%= @player %>.</h1>
+Player: Rock vs CPU: <%= @CPU_weapon %><br />
+
+<% if @CPU_weapon == "Paper" %>
+You lose.
+<% elsif @CPU_weapon == "Rock" %>
+It's a draw.
+<% elsif @CPU_weapon == "Scissors" %>
+You win!
+<% end %>

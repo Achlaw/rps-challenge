@@ -1,9 +1,12 @@
 require 'sinatra/base'
+require './lib/player'
+require './lib/game'
 
 # get '/' do
 #   "This is a form. haha not really but we're getting there."
 # end
 class RPS < Sinatra::Base
+  enable :sessions
   get '/' do
     erb(:index)
   end
@@ -15,6 +18,7 @@ class RPS < Sinatra::Base
   end
 
   get '/play' do
+    @player = params[:player]
     erb(:play)
   end
 
