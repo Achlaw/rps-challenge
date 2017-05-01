@@ -1,6 +1,13 @@
-<h2>Welcome <%= @player %> !  Lets get ready to battle!</h2>
+Player: Paper vs CPU: <%= @CPU_weapon %><br />
 
-Choose your weapon.
+<% if @CPU_weapon == "Scissors" %>
+You lose.
+<% elsif @CPU_weapon == "Paper" %>
+It's a draw.
+<% elsif @CPU_weapon == "Rock" %>
+You win!
+<% end %>
+
 <form action="/select_rock" method="get">
   <input type="submit" value="Rock">
 </form>
