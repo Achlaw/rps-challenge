@@ -30,6 +30,10 @@ class RPS < Sinatra::Base
     redirect '/paper'
   end
 
+  get '/select_scissors' do
+    redirect '/scissors'
+  end
+
   get '/rock' do
     @CPU_weapon = ["Rock", "Paper", "Scissors"].sample
     erb(:rock)
@@ -38,6 +42,11 @@ class RPS < Sinatra::Base
   get '/paper' do
     @CPU_weapon = ["Rock", "Paper", "Scissors"].sample
     erb(:paper)
+  end
+
+  get '/scissors' do
+    @CPU_weapon = ["Rock", "Paper", "Scissors"].sample
+    erb(:scissors)
   end
 
 end

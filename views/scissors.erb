@@ -1,10 +1,10 @@
-Player: Rock vs CPU: <%= @CPU_weapon %><br />
+Player: Scissors vs CPU: <%= @CPU_weapon %><br />
 
-<% if @CPU_weapon == "Paper" %>
+<% if @CPU_weapon == "Rock" %>
 You lose.
-<% elsif @CPU_weapon == "Rock" %>
-It's a draw.
 <% elsif @CPU_weapon == "Scissors" %>
+It's a draw.
+<% elsif @CPU_weapon == "Paper" %>
 You win!
 <% end %>
 
@@ -16,6 +16,6 @@ You win!
   <input type="submit" value="Paper">
 </form>
 
-<form action="/select_scissors" method="get">
+<form action="/select_rock" method="get">
   <input type="submit" value="Scissors">
 </form>
