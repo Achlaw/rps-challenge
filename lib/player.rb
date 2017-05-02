@@ -1,10 +1,9 @@
 class Player
 
-attr_reader :player
-attr_writer :player
+attr_reader :name
 
 def initialize(options)
-  @player = options["player"]
+  @name = options
 end
 
 end

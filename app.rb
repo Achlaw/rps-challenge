@@ -6,46 +6,34 @@ require './lib/game'
 #   "This is a form. haha not really but we're getting there."
 # end
 class RPS < Sinatra::Base
-  enable :sessions
+  # enable :sessions
   get '/' do
     erb(:index)
   end
 
   post '/ready' do
-    p params
-    session[:player_name] = params[:player]
+    @player = Player.new(params[:player])
+    Game.start(@player)
     redirect '/play'
   end
 
   get '/play' do
-    @player = Player.new(session)
+    @game = Game.instance
     erb(:play)
   end
 
   get '/select_rock' do
-    redirect '/rock'
-  end
-
-  get '/select_paper' do
-    redirect '/paper'
-  end
-
-  get '/select_scissors' do
-    redirect '/scissors'
-  end
-
-  get '/rock' do
-    @CPU_weapon = ["Rock", "Paper", "Scissors"].sample
+    @CPU_weapon = Game.choose
     erb(:rock)
   end
 
-  get '/paper' do
-    @CPU_weapon = ["Rock", "Paper", "Scissors"].sample
+  get '/select_paper' do
+    @CPU_weapon = Game.choose
     erb(:paper)
   end
 
-  get '/scissors' do
-    @CPU_weapon = ["Rock", "Paper", "Scissors"].sample
+  get '/select_scissors' do
+    @CPU_weapon = Game.choose
     erb(:scissors)
   end
 
